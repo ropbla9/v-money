@@ -72,10 +72,10 @@ export default {
       this.$emit('input', this.masked ? evt.target.value : unformat(evt.target.value, this.precision))
     },
     blur (evt) {
-      this.$emit('input', this.masked ? evt.target.value : unformat(evt.target.value, this.precision))
+      this.$emit('blur', this.masked ? evt.target.value : unformat(evt.target.value, this.precision))
     },
     enter (evt) {
-      this.$emit('input', this.masked ? evt.target.value : unformat(evt.target.value, this.precision))
+      this.$emit('enter', this.masked ? evt.target.value : unformat(evt.target.value, this.precision))
     }
   }
 }
