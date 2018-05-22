@@ -2,6 +2,8 @@
   <input type="tel"
          :value="formattedValue"
          @change="change"
+         @blur="change"
+         @keyup.enter="change"
          v-money="{precision, decimal, thousands, prefix, suffix}"
          class="v-money" />
 </template>
