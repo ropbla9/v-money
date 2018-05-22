@@ -2,8 +2,8 @@
   <input type="tel"
          :value="formattedValue"
          @change="change"
-         @blur="change"
-         @keyup.enter="change"
+         @blur="blur"
+         @keyup.enter="enter"
          v-money="{precision, decimal, thousands, prefix, suffix}"
          class="v-money" />
 </template>
@@ -69,6 +69,12 @@ export default {
 
   methods: {
     change (evt) {
+      this.$emit('input', this.masked ? evt.target.value : unformat(evt.target.value, this.precision))
+    },
+    blur (evt) {
+      this.$emit('input', this.masked ? evt.target.value : unformat(evt.target.value, this.precision))
+    },
+    enter (evt) {
       this.$emit('input', this.masked ? evt.target.value : unformat(evt.target.value, this.precision))
     }
   }
